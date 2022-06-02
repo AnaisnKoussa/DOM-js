@@ -1,4 +1,8 @@
-//document.querySelectorAll(".important").setAttribute("important", "This is an important item");
+let classAttributes = document.querySelectorAll(".important");
+for (let classAttribute of classAttributes) {
+    classAttribute.setAttribute("title", "This is an important item");
+}
+
 let images = document.querySelectorAll("img");
 for (let image of images) {
     if(image.className !== "important") {
