@@ -9,7 +9,17 @@ const clickOnSquare = (e) => {
   console.log(getElapsedTime())
 }
 
+var sectionDisplayedSquare = document.querySelector('.displayedsquare-wrapper');
+
+function createDivDisplayedSquare() {
+    let divDisplayedSquare = document.createElement("div");
+    divDisplayedSquare.setAttribute("class", "displayedsquare");
+    sectionDisplayedSquare.appendChild(divDisplayedSquare);
+    divDisplayedSquare.style.backgroundColor = "lime";  
+}
+
 const actionSquares = document.querySelectorAll('.actionsquare')
 for (let actionSquare of actionSquares) {
-  actionSquare.addEventListener('click', clickOnSquare)
+    actionSquare.addEventListener('click', createDivDisplayedSquare);
+    actionSquare.addEventListener('click', clickOnSquare);
 }
