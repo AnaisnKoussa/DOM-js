@@ -1,20 +1,8 @@
-function hue() {
-    let oneHue = Math.floor(Math.random() * 360);
-    return oneHue;
-}
-
-function saturation() {
-    let oneSaturation = Math.floor(Math.random() * 100);
-    return oneSaturation;
-}
-
-function lightness() {
-    let oneLightness = Math.floor(Math.random() * 100);
-    return oneLightness;
-}
-
 function pickOneColor() {
-    return `${hue()}, ${saturation()}%, ${lightness()}%`;
+    let hue = Math.floor(Math.random() * 360);
+    let saturation = Math.floor(Math.random() * 100);
+    let lightness = Math.floor(Math.random() * 100);
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
 let article = document.querySelector("article");
@@ -28,10 +16,22 @@ for (let name of array) {
 let sections = document.querySelectorAll("section");
 
 for (let section of sections) {
-    section.style.backgroundColor = `hsl(${pickOneColor()})`;
-    console.log(section.style.backgroundColor = `hsl(${pickOneColor()})`);
+    section.style.backgroundColor = `${pickOneColor()}`;
 }
 
+function randomOrder() {
+    let newOrder = [];
+    for (let i = 0; i < sections.length; i++) {
+        let randomIndex = Math.floor(Math.random() * sections.length);
+        newOrder.push(sections[randomIndex]);
+    }
+    return newOrder;
+}
+
+let newOrder = randomOrder();
+for (let i = 0; i < newOrder.length; i++) {
+    article.appendChild(newOrder[i]);
+} 
 
 
 
